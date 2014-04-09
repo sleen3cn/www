@@ -16,6 +16,10 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
+
+ var watchID = null;
+
 var app = {
     // Application Constructor
     initialize: function() {
@@ -34,6 +38,10 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+
+        watchID = navigator.geolocation.watchPosition(success, error, { frequency: 3000 });
+
+
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -47,3 +55,21 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
+
+
+function success(position) {
+                var element = document.getElementById('geolocation');
+                element.innerHTML = 'Latitude: ' + position.coords.latitude     + '<br />' +
+                'Longitude: '           + position.coords.longitude             + '<br />' +
+                'Altitude: '            + position.coords.altitude              + '<br />' +
+                'Accuracy: '            + position.coords.accuracy              + '<br />' +
+                'Altitude Accuracy: '   + position.coords.altitudeAccuracy      + '<br />' +
+                'Heading: '             + position.coords.heading               + '<br />' +
+                'Speed: '               + position.coords.speed                 + '<br />' +
+                'Timestamp: '           + new Date(position.timestamp)          + '<br />' +
+                '<hr>' + element.innerHTML;
+            }
+             
+            function error(error) {
+                alert(error.message);
+            }
