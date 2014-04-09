@@ -55,6 +55,13 @@
     <script type="text/javascript">
 
         function ExecuteService(serviceurl, dataz) {
+
+            $('#InfoPlace').append('ExecuteService: ' + serviceurl);
+            $('#InfoPlace').append('dataz: ' + JSON.stringify(dataz));
+
+
+
+
             console.log('ExecuteService: ' + serviceurl);
             console.log('dataz: ' + dataz);
             console.log('dataz: ' + JSON.stringify(dataz));
@@ -106,7 +113,7 @@
                 Latitude: '111',
                 Longitude: '222'
             };
-
+             $('#InfoPlace').append('TestSend clicked');
 
             //ExecuteServiceWithHandler('http://localhost:57999/GeoLocation/SaveLocation', ai, OrgMainExecuteServiceHandler);
             ExecuteService('https://chrservicebeta.n3cn.org/GeoLocation/SaveLocation', ai);
