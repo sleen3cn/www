@@ -42,7 +42,7 @@
         <script type="text/javascript" charset="utf-8" src="PhoneGap.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript" src="js/jquery-2.1.0.min"></script>
+        <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
         <script type="text/javascript">
             app.initialize();
         </script>
@@ -67,20 +67,30 @@
 
 
                 success: function (result) {
+                    $('#InfoPlace').append('Success');
+                    $('#InfoPlace').append(result.Message);
+
                     console.log('Success');
                     console.log(result.Message);
                     // $("#AdminBodyContainer").html(result);
                 },
                 error: function (e, b, error) {
-                    console.log('Error');
-                    console.log(e);
-                    console.log(JSON.stringify(e));
+                    $('#InfoPlace').append('Error');
+                    $('#InfoPlace').append(JSON.stringify(e));
+                    $('#InfoPlace').append(JSON.stringify(b));
+                    $('#InfoPlace').append(JSON.stringify(error));
 
-                    console.log(b);
-                    console.log(JSON.stringify(b));
 
-                    console.log(error);
-                    console.log(JSON.stringify(error));
+
+                    console.log('Error' + '<br />');
+                    console.log(e + '<br />');
+                    console.log(JSON.stringify(e) + '<br />');
+
+                    console.log(b + '<br />');
+                    console.log(JSON.stringify(b) + '<br />');
+
+                    console.log(error + '<br />');
+                    console.log(JSON.stringify(error) + '<br />');
                 },
                 complete: function () {
 
@@ -109,7 +119,7 @@
 
         <br><br>
     <input type="button"   onclick="TestSend();" style="cursor:pointer;">click me</input><br /><br />
-  
+  <div id="InfoPlace"/></div>
 
 
 

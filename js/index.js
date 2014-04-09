@@ -39,7 +39,7 @@ var app = {
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
 
-        watchID = navigator.geolocation.watchPosition(success, error, { frequency: 3000 });
+       // watchID = navigator.geolocation.watchPosition(success, error, { frequency: 3000 });
 
 
     },
