@@ -65,11 +65,28 @@
             console.log('ExecuteService: ' + serviceurl);
             console.log('dataz: ' + dataz);
             console.log('dataz: ' + JSON.stringify(dataz));
+
+
+            $.post(serviceurl, dataz );
+
+            return 
+
+            var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
+            xmlhttp.open("POST", "/json-handler");
+            xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            xmlhttp.send(JSON.stringify(dataz));
+
+            return
+
             $.ajax({
                 url: serviceurl,
                 type: 'POST',
                 dataType: 'json',
                 data: JSON.stringify(dataz),
+            
+
+
+
                 contentType: 'application/json; charset=utf-8',
 
 
