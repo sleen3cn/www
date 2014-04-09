@@ -42,8 +42,79 @@
         <script type="text/javascript" charset="utf-8" src="PhoneGap.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/jquery-2.1.0.min"></script>
         <script type="text/javascript">
             app.initialize();
         </script>
+
+
+
+
+        
+    
+    <script type="text/javascript">
+
+        function ExecuteService(serviceurl, dataz) {
+            console.log('ExecuteService: ' + serviceurl);
+            console.log('dataz: ' + dataz);
+            console.log('dataz: ' + JSON.stringify(dataz));
+            $.ajax({
+                url: serviceurl,
+                type: 'POST',
+                dataType: 'json',
+                data: JSON.stringify(dataz),
+                contentType: 'application/json; charset=utf-8',
+
+
+                success: function (result) {
+                    console.log('Success');
+                    console.log(result.Message);
+                    // $("#AdminBodyContainer").html(result);
+                },
+                error: function (e, b, error) {
+                    console.log('Error');
+                    console.log(e);
+                    console.log(JSON.stringify(e));
+
+                    console.log(b);
+                    console.log(JSON.stringify(b));
+
+                    console.log(error);
+                    console.log(JSON.stringify(error));
+                },
+                complete: function () {
+
+
+
+                }
+            });
+        }
+
+
+        function TestSend() {
+            var ai = {
+                Latitude: '111',
+                Longitude: '222'
+            };
+
+
+            //ExecuteServiceWithHandler('http://localhost:57999/GeoLocation/SaveLocation', ai, OrgMainExecuteServiceHandler);
+            ExecuteService('https://chrservicebeta.n3cn.org/GeoLocation/SaveLocation', ai);
+        }
+
+
+
+    </script>
+
+
+        <br><br>
+    <input type="button"   onclick="TestSend();" style="cursor:pointer;">click me</input><br /><br />
+  
+
+
+
+
+
+
     </body>
 </html>
