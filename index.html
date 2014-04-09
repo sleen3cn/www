@@ -25,7 +25,10 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <title>Hello World</title>
-
+        <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
+        
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
 
     </head>
     <body>
@@ -40,9 +43,6 @@
         <p id="geolocation">Finding geolocation...</p>
 
         <script type="text/javascript" charset="utf-8" src="PhoneGap.js"></script>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
         <script type="text/javascript">
             app.initialize();
         </script>
@@ -67,16 +67,16 @@
             console.log('dataz: ' + JSON.stringify(dataz));
 
 
-            $.post(serviceurl, dataz );
+             $.post(serviceurl, dataz );
 
-            return 
+             return 
 
-            var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
-            xmlhttp.open("POST", "/json-handler");
-            xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-            xmlhttp.send(JSON.stringify(dataz));
+             //var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
+             //xmlhttp.open("POST", "/json-handler");
+             //xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+             //xmlhttp.send(JSON.stringify(dataz));
 
-            return
+             //return
 
             $.ajax({
                 url: serviceurl,
