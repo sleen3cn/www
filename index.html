@@ -113,6 +113,57 @@
         }
 
 
+
+        function GetV1(serviceurl, dataz) {
+
+            $('#InfoPlace').append('ExecuteService: ' + serviceurl + '<br />');
+            $('#InfoPlace').append('dataz: ' + JSON.stringify(dataz) + '<br />');
+
+
+            $.ajax({
+                url: serviceurl,
+                type: 'GET',
+               // data: JSON.stringify(dataz),
+                contentType: 'application/json; charset=utf-8',
+               // dataType: 'json',
+                //     crossDomain:true,
+                success: function (result) {
+                    $('#InfoPlace').append('Success' + '<br />');
+                    $('#InfoPlace').append(result.Message + '<br />');
+
+                    //console.log('Success');
+                    //console.log(result.Message);
+                    // $("#AdminBodyContainer").html(result);
+                },
+                error: function (jqXHR, error, errorThrown) {
+                    $('#InfoPlace').append('Error' + '<br />');
+                    $('#InfoPlace').append(JSON.stringify(jqXHR) + '<br />');
+                    $('#InfoPlace').append(jqXHR.responseText + '<br />');
+                    $('#InfoPlace').append(error + '<br />');
+
+
+
+                    //console.log('Error');
+                    //console.log(e );
+                    //console.log(JSON.stringify(e));
+
+                    //console.log(b );
+                    //console.log(JSON.stringify(b) );
+
+                    //console.log(error );
+                    //console.log(JSON.stringify(error));
+                },
+                complete: function () {
+
+
+
+                }
+            });
+        }
+
+
+
+
         function asdf2(serviceurl, data)
         {
 
@@ -156,15 +207,29 @@
                 Latitude: '111',
                 Longitude: '222'
             };
+
+            var ai2 = {
+                LAT: '111',
+                LONG: '222'
+            };
+
+
             $('#InfoPlace').append('TestSendXXX clicked' + '<br />');
 
             //ExecuteService('http://localhost:57999/GeoLocation/SaveLocation', ai);
 
-            //ExecuteService('http://chrservicebeta.n3cn.org//GeoLocation/SaveLocation', ai);
+            ExecuteService('http://chrservicebeta.n3cn.org/GeoLocation/SaveLocation', ai);
 
             //asdf2('http://localhost:57999/GeoLocation/SaveLocation', ai);
 
-            asdf2('http://chrservicebeta.n3cn.org//GeoLocation/SaveLocation', ai);
+            //asdf2('http://chrservicebeta.n3cn.org/GeoLocation/SaveLocation', ai);
+
+
+            //GetV1('http://localhost:65301/AAAAA.aspx?LAT=111&LONG=222', ai2);
+           
+
+
+
 
         }
 
@@ -173,14 +238,17 @@
     </script>
 
 
-      <div onclick="TestSendXXX();" style=" font-size:xx-large; cursor: pointer; padding: 20px; border:1px solid black;" >Click 11 Me</div>
+      <div onclick="TestSendXXX();" style=" font-size:xx-large; cursor: pointer; padding: 20px; border:1px solid black;" >Click 12 Me</div>
+
+
+        <!--<div onclick="InteractWithIFrame();" style=" font-size:xx-large; cursor: pointer; padding: 20px; border:1px solid black;">IFrame Interaction</div>-->
     
   <div id="InfoPlace"></div>
 
 
+        <!--<iframe id="local" src="http://localhost:65301/AAAAA.html"></iframe>
 
-
-
+        <iframe id="outside" src="http://google.com"></iframe>-->
 
     </body>
 </html>
