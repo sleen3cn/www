@@ -71,56 +71,38 @@
             $('#InfoPlace').append('dataz: ' + JSON.stringify(dataz) + '<br />');
 
 
-
-
-            console.log('ExecuteService: ' + serviceurl);
-            console.log('dataz: ' + dataz);
-            console.log('dataz: ' + JSON.stringify(dataz));
-
-
-             $.post(serviceurl, dataz );
-
-             return 
-
-             //var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
-             //xmlhttp.open("POST", "/json-handler");
-             //xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-             //xmlhttp.send(JSON.stringify(dataz));
-
-             //return
-
             $.ajax({
                 url: serviceurl,
                 type: 'POST',
                 data: JSON.stringify(dataz),
                 contentType: 'application/json; charset=utf-8',
                 dataType: 'json',
-                crossDomain:true,
+           //     crossDomain:true,
                 success: function (result) {
                     $('#InfoPlace').append('Success' + '<br />');
                     $('#InfoPlace').append(result.Message + '<br />');
 
-                    console.log('Success');
-                    console.log(result.Message);
+                    //console.log('Success');
+                    //console.log(result.Message);
                     // $("#AdminBodyContainer").html(result);
                 },
-                error: function (e, b, error) {
+                error: function (jqXHR, error, errorThrown) {
                     $('#InfoPlace').append('Error' + '<br />');
-                    $('#InfoPlace').append(JSON.stringify(e) + '<br />');
-                    $('#InfoPlace').append(JSON.stringify(b) + '<br />');
-                    $('#InfoPlace').append(JSON.stringify(error) + '<br />');
+                    $('#InfoPlace').append(JSON.stringify(jqXHR) + '<br />');
+                    $('#InfoPlace').append(jqXHR.responseText + '<br />');
+                    $('#InfoPlace').append(error + '<br />');
 
 
 
-                    console.log('Error');
-                    console.log(e );
-                    console.log(JSON.stringify(e));
+                    //console.log('Error');
+                    //console.log(e );
+                    //console.log(JSON.stringify(e));
 
-                    console.log(b );
-                    console.log(JSON.stringify(b) );
+                    //console.log(b );
+                    //console.log(JSON.stringify(b) );
 
-                    console.log(error );
-                    console.log(JSON.stringify(error));
+                    //console.log(error );
+                    //console.log(JSON.stringify(error));
                 },
                 complete: function () {
 
@@ -131,16 +113,14 @@
         }
 
 
-        function TestSend() {
+        function TestSendXXX() {
             var ai = {
                 Latitude: '111',
                 Longitude: '222'
             };
-             $('#InfoPlace').append('TestSend clicked');
+            $('#InfoPlace').append('TestSendXXX clicked' + '<br />');
 
-            //ExecuteServiceWithHandler('http://localhost:57999/GeoLocation/SaveLocation', ai, OrgMainExecuteServiceHandler);
-            ExecuteService('https://chrservicebeta.n3cn.org/GeoLocation/SaveLocation', ai);
-             //ExecuteService('http://localhost:57999/GeoLocation/SaveLocation', ai);
+             ExecuteService('http://localhost:57999/GeoLocation/SaveLocation', ai);
         }
 
 
@@ -148,7 +128,7 @@
     </script>
 
 
-      <input  type="button" onclick="TestSend();" style="cursor: pointer; padding: 20px;" value="Click2x Me" />
+      <div onclick="TestSendXXX();" style="cursor: pointer; padding: 20px; border:1px solid black;" >Click2x Me</div>
     
   <div id="InfoPlace"></div>
 
