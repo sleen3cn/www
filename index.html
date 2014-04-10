@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--
     Licensed to the Apache Software Foundation (ASF) under one
     or more contributor license agreements.  See the NOTICE file
@@ -26,6 +26,17 @@
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <title>Hello World</title>
         <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.4.2.min.js"></script>
+        <script type="text/javascript">
+
+            $(document).ready(function () {
+                $.support.cors = true;
+                $.mobile.allowCrossDomainPages = true;
+            });
+
+        </script>
+
+        
         
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
@@ -67,9 +78,9 @@
             console.log('dataz: ' + JSON.stringify(dataz));
 
 
-             $.post(serviceurl, dataz );
+             //$.post(serviceurl, dataz );
 
-             return 
+             //return 
 
              //var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
              //xmlhttp.open("POST", "/json-handler");
@@ -81,14 +92,9 @@
             $.ajax({
                 url: serviceurl,
                 type: 'POST',
-                dataType: 'json',
                 data: JSON.stringify(dataz),
-            
-
-
-
                 contentType: 'application/json; charset=utf-8',
-
+                dataType: 'json',
 
                 success: function (result) {
                     $('#InfoPlace').append('Success');
@@ -133,7 +139,8 @@
              $('#InfoPlace').append('TestSend clicked');
 
             //ExecuteServiceWithHandler('http://localhost:57999/GeoLocation/SaveLocation', ai, OrgMainExecuteServiceHandler);
-            ExecuteService('https://chrservicebeta.n3cn.org/GeoLocation/SaveLocation', ai);
+             ExecuteService('https://chrservicebeta.n3cn.org/GeoLocation/SaveLocation', ai);
+             //ExecuteService('http://localhost:57999/GeoLocation/SaveLocation', ai);
         }
 
 
