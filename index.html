@@ -77,7 +77,7 @@
                 data: JSON.stringify(dataz),
                 contentType: 'application/json; charset=utf-8',
                 dataType: 'json',
-           //     crossDomain:true,
+                crossDomain:true,
                 success: function (result) {
                     $('#InfoPlace').append('Success' + '<br />');
                     $('#InfoPlace').append(result.Message + '<br />');
@@ -218,11 +218,11 @@
 
             //ExecuteService('http://localhost:57999/GeoLocation/SaveLocation', ai);
 
-            ExecuteService('http://chrservicebeta.n3cn.org/GeoLocation/SaveLocation', ai);
+            //ExecuteService('http://chrservicebeta.n3cn.org/GeoLocation/SaveLocation', ai);
 
             //asdf2('http://localhost:57999/GeoLocation/SaveLocation', ai);
 
-            //asdf2('http://chrservicebeta.n3cn.org/GeoLocation/SaveLocation', ai);
+            asdf2('http://chrservicebeta.n3cn.org/GeoLocation/SaveLocation', ai);
 
 
             //GetV1('http://localhost:65301/AAAAA.aspx?LAT=111&LONG=222', ai2);
@@ -238,7 +238,7 @@
     </script>
 
 
-      <div onclick="TestSendXXX();" style=" font-size:xx-large; cursor: pointer; padding: 20px; border:1px solid black;" >Click 12 Me</div>
+      <div onclick="TestSendXXX();" style=" font-size:xx-large; cursor: pointer; padding: 20px; border:1px solid black;" >Click 13 Me</div>
 
 
         <!--<div onclick="InteractWithIFrame();" style=" font-size:xx-large; cursor: pointer; padding: 20px; border:1px solid black;">IFrame Interaction</div>-->
