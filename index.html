@@ -120,6 +120,10 @@
             xmlhttp.open("POST", serviceurl, true);
             xmlhttp.setRequestHeader("Content-type", "application/json; charset=utf-8");
             xmlhttp.onreadystatechange = function () {//Call a function when the state changes.
+
+                $('#InfoPlace').append(xmlhttp.readyState + '___' + xmlhttp.status  + '<br />');
+
+
                 if (xmlhttp.readyState == 4) {
                     if (xmlhttp.status == 200 || xmlhttp.status == 0) {
                         $('#InfoPlace').append('Success xmlhttp' + '<br />');
