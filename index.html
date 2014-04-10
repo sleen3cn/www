@@ -119,6 +119,16 @@
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.open("POST", serviceurl, true);
             xmlhttp.setRequestHeader("Content-type", "application/json; charset=utf-8");
+            xmlhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
+
+            //xhr.setRequestHeader("Accept", "application/soap+xml, application/dime, multipart/related, text/*");
+            //xhr.setRequestHeader("User-Agent", "IBM Web Services Explorer");
+            //xhr.setRequestHeader("Cache-Control", "no-cache");
+            //xhr.setRequestHeader("Pragma", "no-cache");
+            //xhr.setRequestHeader("Connection", "close");
+
+
+
             xmlhttp.onreadystatechange = function () {//Call a function when the state changes.
 
                 $('#InfoPlace').append(xmlhttp.readyState + '___' + xmlhttp.status  + '<br />');
@@ -163,7 +173,7 @@
     </script>
 
 
-      <div onclick="TestSendXXX();" style="cursor: pointer; padding: 20px; border:1px solid black;" >Click2x Me</div>
+      <div onclick="TestSendXXX();" style=" font-size:xx-large; cursor: pointer; padding: 20px; border:1px solid black;" >Click2x Me</div>
     
   <div id="InfoPlace"></div>
 
